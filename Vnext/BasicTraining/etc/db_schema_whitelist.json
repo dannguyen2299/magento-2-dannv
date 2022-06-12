@@ -1,0 +1,19 @@
+{
+    "students": {
+        "column": {
+            "entity_id": true,
+            "name": true,
+            "gender": true,
+            "dob": true,
+            "address": true,
+            "slug": true,
+            "email": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "STUDENTS_SLUG_EMAIL": true
+        }
+    }
+}

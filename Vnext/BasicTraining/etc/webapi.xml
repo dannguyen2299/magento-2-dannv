@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/student/getStudentById/:id" method="GET">
+        <service class="Vnext\BasicTraining\Api\StudentRepositoryInterface" method="getStudentById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/student/getList" method="GET">
+        <service class="Vnext\BasicTraining\Api\StudentRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/student/deleteById/:id" method="DELETE">
+        <service class="Vnext\BasicTraining\Api\StudentRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route>
+    <route url="/V1/student/createStudent" method="POST">
+        <service class="Vnext\BasicTraining\Api\StudentRepositoryInterface" method="createStudent"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route>
+    <route url="/V1/student/updateStudent/:id" method="PUT">
+        <service class="Vnext\BasicTraining\Api\StudentRepositoryInterface" method="updateStudent"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route>
+
+
+</routes>

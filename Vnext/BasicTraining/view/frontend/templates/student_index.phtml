@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="?php echo $this->getLang() ?>"
+      lang="<?php echo $this->getLang() ?>">
+<body class="page-popup>
+<?php
+// get custom data
+/**
+ * @var \Vnext\BasicTraining\Block\Index $block
+ */
+//echo  $studentSort = $this->getRequest()->getParam('sort');
+$dataStudent = $block->getDataStudent(); ?>
+<fieldset class=" fieldset">
+
+<?php if (count($dataStudent)) { ?>
+    <a href="<?php echo $block->getUrl('students.html') ?>">Home</a>
+
+<div class="table-wrapper custom-data ">
+    <table class="data table table-data-items ">
+        <caption class="table-caption"><?= $block->escapeHtml('List Students') ?></caption>
+        <thead>
+        <tr>
+            <th scope="col" class="col name"><?= $block->escapeHtml('Entity Id') ?><a
+                    href="<?php echo $block->getUrl('student/index/index') . '?sort=id' ?>">Sort</a></th>
+            <th scope="col" class="col name"><?= $block->escapeHtml('Name') ?><a
+                    href="<?php echo $block->getUrl('student/index/index') . '?sort=name' ?>">Sort</a></th>
+            <th scope="col" class="col name"><?= $block->escapeHtml('Date') ?><a
+                    href="<?php echo $block->getUrl('student/index/index') . '?sort=date' ?>">Sort</a></th>
+            <th scope="col" class="col name"><?= $block->escapeHtml('Gender') ?></th>
+            <th scope="col" class="col name"><?= $block->escapeHtml('Detail') ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($dataStudent as $item): ?>
+            <tr>
+                <td data-th="<?= $block->escapeHtml(__('Entity Id')) ?>" class="col id">
+                    <?php echo $item->getEntity_id() ?>
+                </td>
+                <td data-th="<?= $block->escapeHtml(__('Name')) ?>" class="col id">
+                    <?php echo $item->getName() ?>
+                </td>
+                <td data-th="<?= $block->escapeHtml(__('Dob')) ?>" class="col id">
+                    <span><?= $block->escapeHtml($item->getdob()) ?></span>
+                </td>
+                <td data-th="<?= $block->escapeHtml(__('Gender')) ?>" class="col id">
+                    <?php if ($item->getGender() == 1) {
+                        echo "Nam";
+                    } else {
+                        echo "Nữ";
+                    } ?>
+                </td>
+
+                <td data-th="<?= $block->escapeHtml(__('Detail')) ?>" class="col id">
+<!--                    <a href="--><?php //echo $block->getUrl('student/index/details') . '?ids=' . $item->getEntity_id() ;?><!--">Detail</a>-->
+                    <a href="<?php echo $block->getUrl($block->getStudentIndexUrl().'/'.$item->getSlug().'.'.$block->getPostfixUrl())?>">Detail</a>
+
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<?php if ($block->getPagerHtml()): ?>
+    <div class="order-products-toolbar toolbar bottom">
+        <?= $block->getPagerHtml() ?>
+    </div>
+<?php endif ?>
+<!-- Search form -->
+<form action="<?= $block->escapeHtml($block->getUrl('students.html')) ?>" method="get">
+    <input name="entity_id" class="form-control" type="text" placeholder="ID" aria-label="Search">
+    <br>
+    <br>
+    <input name="name" class="form-control" type="text" placeholder="Name" aria-label="Search" width="50px">
+    <br>
+    <br>
+    <label for="pet-select">Giới tính</label>
+    <select name="gender" id="pet-select">
+        <option value="">--Please choose an option--</option>
+        <option value="1">Nam</option>
+        <option value="female">Nữ</option>
+    </select>
+    <br>
+    <br>
+    <label for="pet-select">Độ tuổi</label>
+    <select name="dob" id="pet-select">
+        <option value="">--Please choose an option--</option>
+        <option value="5-10">5tuổi->10tuổi</option>
+        <option value="11-100"> > 10 tuổi</option>
+    </select>
+    <button type="submit">search</button>
+</form>
+<?php } else { ?>
+    <a href="<?php echo $block->getUrl('student/index/index') ?>">Home</a>
+    <div class="message info empty">
+        <span><?= $block->escapeHtml('You have no data in table.') ?></span>
+    </div>
+<?php } ?>
+</fieldset>
+</body>
+</html>

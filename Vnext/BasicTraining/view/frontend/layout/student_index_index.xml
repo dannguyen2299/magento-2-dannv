@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Vnext\BasicTraining\Block\Index"
+                   name="student_block_edit"
+                   template="Vnext_BasicTraining::student_index.phtml"
+                   cacheable="false"
+            />
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,63 @@
+<?php
+
+?>
+
+<?php $gridrecords = $block->getDetails(); ?>
+<a href="<?php echo $block->getUrl('students.html') ?>">Home</a>
+
+<div class="table-wrapper orders-history">
+
+    <!--        Tabel-->
+    <table class="data table table-order-items history" id="my-orders-table">
+        <caption class="table-caption"><?php echo __('Grid Record') ?></caption>
+        <thead>
+        <tr>
+            <th scope="col" class="col id"><?php echo __('Entity Id') ?></th>
+            <th scope="col" class="col title"><?php echo __('Name') ?></th>
+            <th scope="col" class="col product"><?php echo __('Gender') ?></th>
+            <th scope="col" class="col amount"><?php echo __('Dob') ?></th>
+            <th scope="col" class="col amount"><?php echo __('Address') ?></th>
+            <th scope="col" class="col amount"><?php echo __('Slug') ?></th>
+            <th scope="col" class="col amount"><?php echo __('Email') ?></th>
+            <th scope="col" class="col amount"><?php echo __('Create At') ?></th>
+            <th scope="col" class="col amount"><?php echo __('Updated At') ?></th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            <td data-th="<?= $block->escapeHtml(__('Entity Id')) ?>" class="col id">
+                <?php echo $gridrecords->getId() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Name')) ?>" class="col id">
+                <?php echo $gridrecords->getName() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Gender')) ?>" class="col id">
+                <?php if ($gridrecords->getGender() == 1) {
+                    echo "Nam";
+                } else {
+                    echo "Nữ";
+                } ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Dob')) ?>" class="col id">
+                <?php echo $gridrecords->getDob() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Address')) ?>" class="col id">
+                <?php echo $gridrecords->getAddress() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Slug')) ?>" class="col id">
+                <?php echo $gridrecords->getSlug() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Email')) ?>" class="col id">
+                <?php echo $gridrecords->getEmail() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Create At')) ?>" class="col id">
+                <?php echo $gridrecords->getCreatedAt() ?>
+            </td>
+            <td data-th="<?= $block->escapeHtml(__('Updated At')) ?>" class="col id">
+                <?php echo $gridrecords->getUpdatedAt() ?>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

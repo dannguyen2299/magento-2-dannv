@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="vnext_basictraining_cronjob_sendmail" instance="Vnext\BasicTraining\Cron\SendMail" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+    </group>
+</config>

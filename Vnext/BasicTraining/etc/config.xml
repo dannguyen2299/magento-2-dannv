@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <training>
+            <general_training>
+                <enable>0</enable>
+            </general_training>
+            <seo_training>
+                <student_index_url>students</student_index_url>
+                <postfix_url>.html</postfix_url>
+            </seo_training>
+            <page_list_student>
+                <field_list_student>
+                    1
+                </field_list_student>
+            </page_list_student>
+        </training>
+    </default>
+</config>
